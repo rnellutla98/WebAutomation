@@ -14,7 +14,9 @@ import org.testng.annotations.Test;
 
 import com.fasterxml.jackson.databind.annotation.JsonAppend.Prop;
 
+import WebAutomation.PageObjects.HomePage;
 import WebAutomation.PageObjects.LandingPage;
+import WebAutomation.PageObjects.LoginPage;
 import WebAutomation.PageObjects.RegistrationConfirmationPage;
 import WebAutomation.PageObjects.RegistrationPage;
 import WebAutomation.TestUtilities.BaseTest;
@@ -25,7 +27,7 @@ public class UserRegistration extends BaseTest{
 	 @Test
 	 public void userRegister() {		 
 		 RegistrationPage rpage=landingPage.clickOnRegister();
-		 RegistrationConfirmationPage cpage=rpage.performRegistration("male","Rahul","Nellutla","6","February","1997","eywa@gmail.com","OpenText","hurtlocker","hurtlocker");
+		 RegistrationConfirmationPage cpage=rpage.performRegistration("male","Rahul","Nellutla","6","February","1997","eywaa@gmail.com","OpenText","hurtlocker","hurtlocker");
 		 String actualMessage=cpage.getMessage();
 		 Assert.assertEquals(actualMessage,prop.getProperty("registerSuccess"));
 		 cpage.continueButton.click();
@@ -33,12 +35,9 @@ public class UserRegistration extends BaseTest{
 	 
 	 @Test(dependsOnMethods= {"userRegister"})
 	 public void userLogin() {
-		 landingPage.clickOnLogin();
-		 driver.findElement(By.cssSelector(".email")).sendKeys("torok@gmail.com");
-		 driver.findElement(By.cssSelector(".password")).sendKeys("hurtlocker");
-		 driver.findElement(By.cssSelector(".login-button")).click();
-		 WebDriverWait wait= new WebDriverWait(driver,Duration.ofSeconds(5));
-		 wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.cssSelector(".ico-account"))));
+		 LoginPage lpage = landingPage.clickOnLogin();
+		 HomePage hpage = lpage.userLogin("eywaa@gmail.com", "hurtlocker");
+		 Assert.assertTrue(hpage.getLoginStatus());
 	 }
 	 
 }

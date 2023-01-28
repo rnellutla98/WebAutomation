@@ -27,6 +27,6 @@ public class LandingPage{
     
     public LoginPage clickOnLogin() {
     	loginButton.click();
-    	return new LoginPage();
+    	return new LoginPage(driver);
     }
 }

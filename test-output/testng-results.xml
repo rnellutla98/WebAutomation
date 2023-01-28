@@ -1,37 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-01-28T18:39:18 IST" name="Default suite" finished-at="2023-01-28T18:39:33 IST" duration-ms="14852">
+  <suite started-at="2023-01-28T23:36:47 IST" name="Default suite" finished-at="2023-01-28T23:37:00 IST" duration-ms="12720">
     <groups>
     </groups>
-    <test started-at="2023-01-28T18:39:18 IST" name="Default test" finished-at="2023-01-28T18:39:33 IST" duration-ms="14852">
-      <class name="WebAutomation.Testcases.UserRegistration">
-        <test-method is-config="true" signature="initDriver()[pri:0, instance:WebAutomation.Testcases.UserRegistration@273e7444]" started-at="2023-01-28T18:39:18 IST" name="initDriver" finished-at="2023-01-28T18:39:24 IST" duration-ms="5583" status="PASS">
+    <test started-at="2023-01-28T23:36:47 IST" name="Default test" finished-at="2023-01-28T23:37:00 IST" duration-ms="12720">
+      <class name="WebAutomation.Testcases.AddingToCart">
+        <test-method is-config="true" signature="initDriver()[pri:0, instance:WebAutomation.Testcases.AddingToCart@54e1c68b]" started-at="2023-01-28T23:36:48 IST" name="initDriver" finished-at="2023-01-28T23:36:52 IST" duration-ms="4146" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initDriver -->
-        <test-method signature="userRegister()[pri:0, instance:WebAutomation.Testcases.UserRegistration@273e7444]" started-at="2023-01-28T18:39:24 IST" name="userRegister" finished-at="2023-01-28T18:39:27 IST" duration-ms="2977" status="PASS">
+        <test-method signature="AddItemToCart()[pri:0, instance:WebAutomation.Testcases.AddingToCart@54e1c68b]" started-at="2023-01-28T23:36:52 IST" name="AddItemToCart" finished-at="2023-01-28T23:37:00 IST" duration-ms="8394" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- userRegister -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:WebAutomation.Testcases.UserRegistration@273e7444]" started-at="2023-01-28T18:39:27 IST" name="tearDown" finished-at="2023-01-28T18:39:27 IST" duration-ms="104" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="initDriver()[pri:0, instance:WebAutomation.Testcases.UserRegistration@273e7444]" started-at="2023-01-28T18:39:27 IST" name="initDriver" finished-at="2023-01-28T18:39:30 IST" duration-ms="3386" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- initDriver -->
-        <test-method signature="userLogin()[pri:0, instance:WebAutomation.Testcases.UserRegistration@273e7444]" started-at="2023-01-28T18:39:30 IST" name="userLogin" finished-at="2023-01-28T18:39:33 IST" depends-on-methods="WebAutomation.Testcases.UserRegistration.userRegister" duration-ms="2629" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- userLogin -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:WebAutomation.Testcases.UserRegistration@273e7444]" started-at="2023-01-28T18:39:33 IST" name="tearDown" finished-at="2023-01-28T18:39:33 IST" duration-ms="119" status="PASS">
+        </test-method> <!-- AddItemToCart -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:WebAutomation.Testcases.AddingToCart@54e1c68b]" started-at="2023-01-28T23:37:00 IST" name="tearDown" finished-at="2023-01-28T23:37:00 IST" duration-ms="132" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- WebAutomation.Testcases.UserRegistration -->
+      </class> <!-- WebAutomation.Testcases.AddingToCart -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
