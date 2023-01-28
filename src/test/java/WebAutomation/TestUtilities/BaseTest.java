@@ -14,40 +14,43 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import WebAutomation.PageObjects.LandingPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseTest {
-	
+
 	public WebDriver driver;
-	String browser;	
-	
-   @BeforeMethod
-   public void initDriver() throws IOException {
-	   FileInputStream fis=new FileInputStream(System.getProperty("user.dir")+"\\src\\main\\java\\WebAutomation\\GenericUtilities\\General.properties");
-		Properties prop=new Properties();
+	String browser;
+	public LandingPage landingPage;
+	public Properties prop;
+	@BeforeMethod
+	public void initDriver() throws IOException {
+		FileInputStream fis = new FileInputStream(System.getProperty("user.dir")
+				+ "\\src\\main\\java\\WebAutomation\\GenericUtilities\\General.properties");
+		prop = new Properties();
 		prop.load(fis);
-		browser=prop.getProperty("browser");
+		browser = prop.getProperty("browser");
 		System.out.println(browser);
-	   if( browser.equals("chrome")){
-	     WebDriverManager.chromedriver().setup();
-		 driver= new ChromeDriver();
-		 
-	   }
-	   else if(browser.equals("firefox")) {
-		   WebDriverManager.firefoxdriver().setup();
-		   driver=new FirefoxDriver();
-	   }
-	   else if(browser.equals("edge")) {
-		   WebDriverManager.edgedriver().setup();
-		   driver=new EdgeDriver();
-		   
-	   }
-	   driver.get(prop.getProperty("landingPage"));
-	   driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-	   driver.manage().window().maximize();
-   }
-   @AfterMethod
-   public void tearDown() {
-	  driver.close(); 
-   }
+		if (browser.equals("chrome")) {
+			WebDriverManager.chromedriver().setup();
+			driver = new ChromeDriver();
+
+		} else if (browser.equals("firefox")) {
+			WebDriverManager.firefoxdriver().setup();
+			driver = new FirefoxDriver();
+		} else if (browser.equals("edge")) {
+			WebDriverManager.edgedriver().setup();
+			driver = new EdgeDriver();
+
+		}
+		driver.get(prop.getProperty("landingPage"));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+		driver.manage().window().maximize();
+		landingPage = new LandingPage(driver);
+	}
+
+	@AfterMethod
+	public void tearDown() {
+		driver.close();
+	}
 }
