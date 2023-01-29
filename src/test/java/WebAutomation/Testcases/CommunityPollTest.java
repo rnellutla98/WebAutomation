@@ -14,7 +14,7 @@ import WebAutomation.PageObjects.LoginPage;
 import WebAutomation.TestUtilities.BaseTest;
 
 public class CommunityPollTest extends BaseTest {
-	@Test(dataProvider="pollDetails")
+	@Test(dataProvider="pollDetails",groups= {"Regression"})
 	public void communityPollwithoutLogin(HashMap<String,String> input) {
 		String message = landingPage.getPollErrorMessage(input.get("option"));
 		Assert.assertEquals(message, prop.getProperty("pollErrorMessage"));

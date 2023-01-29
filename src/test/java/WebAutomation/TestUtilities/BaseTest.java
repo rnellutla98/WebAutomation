@@ -34,7 +34,7 @@ public class BaseTest {
 	public LandingPage landingPage;
 	public Properties prop;
 
-	@BeforeMethod
+	@BeforeMethod(alwaysRun=true)
 	public void initDriver() throws IOException {
 		FileInputStream fis = new FileInputStream(System.getProperty("user.dir")
 				+ "\\src\\main\\java\\WebAutomation\\GenericUtilities\\General.properties");
@@ -72,7 +72,7 @@ public class BaseTest {
 		return data;
 	}
 
-	@AfterMethod
+	@AfterMethod(alwaysRun=true)
 	public void tearDown() {
 		driver.close();
 	}

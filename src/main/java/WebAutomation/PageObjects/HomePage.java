@@ -71,7 +71,7 @@ public class HomePage extends CommonFunctions{
 	}
 	
 	public String getPollMessage(String option) {
-		if(!pollMessage.isDisplayed()) {
+		if(pollSubmit==null) {
 			waitForElementToAppear(pollSubmit);
 			selectPollOption(option);
 			waitForElementToAppear(pollMessage);

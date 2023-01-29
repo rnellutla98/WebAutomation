@@ -29,7 +29,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class UserRegistration extends BaseTest {
 
-	@Test(dataProvider = "registerDetails")
+	@Test(dataProvider = "registerDetails", priority = 1)
 	public void userRegister(HashMap<String, String> input) {
 		RegistrationPage rpage = landingPage.clickOnRegister();
 		RegistrationConfirmationPage cpage = rpage.performRegistration(input.get("gender"), input.get("firstname"),
@@ -40,27 +40,26 @@ public class UserRegistration extends BaseTest {
 		cpage.continueButton.click();
 	}
 
-	@Test(dataProvider = "loginDetails")
-	public void userLogin(HashMap<String,String> input) {
+	@Test(dataProvider = "loginDetails",groups= {"Regression"})
+	public void userLogin(HashMap<String, String> input) {
 		LoginPage lpage = landingPage.clickOnLogin();
 		HomePage hpage = lpage.userLogin(input.get("email"), input.get("password"));
 		Assert.assertTrue(hpage.getLoginStatus());
 	}
-    
-	
+
 	@DataProvider()
 	public Object[][] registerDetails() throws IOException {
 		List<HashMap<String, String>> data = readDataFromJSON(new File(System.getProperty("user.dir")
 				+ "\\src\\test\\java\\WebAutomation\\TestData\\RegistrationTestData.json"));
-		return new Object[][] { {data.get(0)}, {data.get(1)} };
+		return new Object[][] { { data.get(0) }, { data.get(1) } };
 
 	}
-	
+
 	@DataProvider()
-	public Object[][] loginDetails() throws IOException{
-		List<HashMap<String, String>> data = readDataFromJSON(new File(System.getProperty("user.dir")
-				+ "\\src\\test\\java\\WebAutomation\\TestData\\LoginTestData.json"));
-		return new Object[][] { {data.get(0)}, {data.get(1)} };
+	public Object[][] loginDetails() throws IOException {
+		List<HashMap<String, String>> data = readDataFromJSON(new File(
+				System.getProperty("user.dir") + "\\src\\test\\java\\WebAutomation\\TestData\\LoginTestData.json"));
+		return new Object[][] { { data.get(0) }, { data.get(1) } };
 	}
 
 }

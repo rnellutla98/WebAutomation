@@ -13,7 +13,7 @@ import WebAutomation.TestUtilities.BaseTest;
 
 public class CurrencyConversion extends BaseTest{
 	
-     @Test(dataProvider="currencyDetails")
+     @Test(dataProvider="currencyDetails",groups= {"Regression"})
      public void currencyConvTest(HashMap<String,String> input) {
     	 landingPage.selectCurrency(input.get("currency"));
     	 Assert.assertEquals(landingPage.getCurrencySymbol(),input.get("symbol"));
