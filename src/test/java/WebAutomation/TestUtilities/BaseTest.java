@@ -23,6 +23,7 @@ public class BaseTest {
 	String browser;
 	public LandingPage landingPage;
 	public Properties prop;
+
 	@BeforeMethod
 	public void initDriver() throws IOException {
 		FileInputStream fis = new FileInputStream(System.getProperty("user.dir")
@@ -32,8 +33,11 @@ public class BaseTest {
 		browser = prop.getProperty("browser");
 		System.out.println(browser);
 		if (browser.equals("chrome")) {
-			WebDriverManager.chromedriver().setup();
+//			WebDriverManager.chromedriver().setup();
+//			driver = new ChromeDriver();
 			driver = new ChromeDriver();
+			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")
+					+ "\\src\\main\\java\\WebAutomation\\GenericUtilities\\chromedriver.exe");
 
 		} else if (browser.equals("firefox")) {
 			WebDriverManager.firefoxdriver().setup();

@@ -35,6 +35,8 @@ public class HomePage extends CommonFunctions{
 	@FindBy(css=".bar-notification-container")
 	public WebElement toastMessage;
 	
+	@FindBy(xpath="//span[@class='poll-total-votes']")
+	public WebElement pollMessage;
 	
 	
 	
@@ -66,6 +68,13 @@ public class HomePage extends CommonFunctions{
 	public String getToastMessage() {
 		waitForElementToAppear(toastMessage);
 		return toastMessage.getText();
+	}
+	
+	public String getPollMessage(String option) {
+		waitForElementToAppear(pollSubmit);
+		selectPollOption(option);
+		waitForElementToAppear(pollMessage);
+		return pollMessage.getText();
 	}
 	
 	
