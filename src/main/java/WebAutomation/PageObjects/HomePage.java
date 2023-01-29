@@ -71,10 +71,13 @@ public class HomePage extends CommonFunctions{
 	}
 	
 	public String getPollMessage(String option) {
-		waitForElementToAppear(pollSubmit);
-		selectPollOption(option);
-		waitForElementToAppear(pollMessage);
+		if(!pollMessage.isDisplayed()) {
+			waitForElementToAppear(pollSubmit);
+			selectPollOption(option);
+			waitForElementToAppear(pollMessage);
+		}
 		return pollMessage.getText();
+		
 	}
 	
 	

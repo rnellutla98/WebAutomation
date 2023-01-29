@@ -48,9 +48,9 @@ public class LandingPage extends CommonFunctions {
 		selectDropDownByText(currencySelection, curr);
 	}
 
-	public char getCurrencySymbol() {
+	public String getCurrencySymbol() {
 		String price = priceTag.getText();
-		return price.charAt(0);
+		return Character.toString(price.charAt(0));
 	}
 	
 	public String getPollErrorMessage(String option) {

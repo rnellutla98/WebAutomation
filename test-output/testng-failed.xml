@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="WebAutomation.Testcases.CommunityPollTest">
+      <class name="WebAutomation.Testcases.AddingToCart">
         <methods>
           <include name="tearDown"/>
-          <include name="communityPollwithoutLogin"/>
+          <include name="AddItemToCart" invocation-numbers="0"/>
           <include name="initDriver"/>
         </methods>
-      </class> <!-- WebAutomation.Testcases.CommunityPollTest -->
+      </class> <!-- WebAutomation.Testcases.AddingToCart -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
